@@ -1,0 +1,21 @@
+.error-section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color : #62747D
+}
+.fa-file-circle-exclamation{
+    color: #00A884;
+}
+.error-section h1{
+    margin: 15px 0px;
+    font-size: 34px;
+    font-weight: 400;
+}
+.error-section h5{
+    margin: 0px;
+    font-size: 16px;
+}

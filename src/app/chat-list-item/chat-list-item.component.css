@@ -1,0 +1,101 @@
+.chat-list-item{
+    display: flex;
+    /* padding:16px 10px 10px 15px; */
+    padding-top: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 5px;
+    align-content: center;
+    align-items: center;
+
+}
+.user-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #CFD5D7;
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-list-item:hover{
+    background-color: #F7F7F7;
+}
+.chat-item-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin:16px 10px 0px 15px; */
+    margin-left: 15px;
+    margin-bottom: 6px;
+
+}
+
+.user-icon .fa-user-friends{
+    color:  whitesmoke;
+    
+}
+.chat-item-right{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 100%;
+    /* padding-bottom: 26px; */
+    border-bottom: 1px solid #E9EDEF;
+}
+.user-chat{
+    /* display: block; */
+    margin-left: 10px;
+    padding-top: 10px;
+    /* max-width: 20vw; */
+    /* text-overflow: ellipsis; */
+    /* border: 2px solid red; */
+
+}
+.user-chat .group-name,.user-chat .group-recent-activity{
+    margin: 0px;
+    font-size: 13px;
+    font-weight: 400;
+
+}
+.user-chat .group-name{
+    /* max-width: 320px;
+    word-break: break-all; */
+    color : #63727B;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.user-chat .group-recent-activity{
+    overflow:hidden ;
+     white-space:nowrap;
+    color: #6B7C85;
+    font-size: 12px;
+    margin-bottom: 15px;
+    /* max-width: 240px; */
+    /* flex: 1 1 auto; */
+    /* max-width: 20vw; */
+    max-width: 19vw;
+    /* max-width: 15vw; */
+    text-overflow: ellipsis;
+}
+.user-time{
+    margin-top: 12px;
+   color: #6B7C85; 
+   max-width: 20vw;
+  word-break: break-word;
+}
+.user-time h4{
+    margin: 0px;
+    font-size: 10px;
+    font-weight: 600;
+}
+/* .chat-conversation{
+    width: 70vw;
+} */
+.focus{
+    background-color: #EBEBEB;
+}

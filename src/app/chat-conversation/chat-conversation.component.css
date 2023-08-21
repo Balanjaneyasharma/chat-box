@@ -1,0 +1,198 @@
+.chat-conversation-section{
+    height: 100vh;
+    position: relative;
+    /*new changes*/
+    background: url('/assets/Images/Conversation-bg.png') fixed;
+    background-color: #E9E4DC;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.chat-conversation-section::-webkit-scrollbar{
+    width: 5px;
+}
+.chat-conversation-section::-webkit-scrollbar-button{
+    height: 2px;
+}
+.chat-conversation-section::-webkit-scrollbar-track{
+    background-color: #F0F2F5;
+    /* opacity: 0; */
+}
+
+.chat-conversation-section::-webkit-scrollbar-thumb{
+    background-color: #C6C6C6;
+    /* background-color: #54656F; */
+    /* height: 10px !important; */
+    /* border-radius: 2px; */
+
+}
+.chat-conversation-header{
+    position :sticky;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    flex:0 0 auto;
+    display: flex;
+    padding: 8px 15px;
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #F0F2F5;
+}
+.chat-header-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #CFD5D7;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-icon .fa-user-friends{
+    color: white;
+    align-self: center;
+}
+.fa-users{
+    color : #54656F;
+}
+.fa-trash{
+    cursor: pointer;
+}
+.user-name{
+    margin: 0px;
+    margin-left: 8px;
+    padding: 0px;
+    font-size: 16px;
+    color: #677982;
+    font-weight: 400;
+}
+.message-container{
+    /* height: 84vh; */
+    flex: 1 1 auto;
+    /* overflow-y: auto; */
+}
+.send-message{
+    background-color: #F0F2F5;
+    position: sticky;
+    /* flex : 0 0 auto; */
+    z-index: 2;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 16px 10px 16px 15px;
+
+}
+.send-message .mode{
+    cursor: pointer;
+    margin: 0px 10px;
+}
+.send-message input{
+    display: inline-block;
+    padding: 10px;
+    width: 98%;
+    margin-left: 1%;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+}
+.send-message input::placeholder{
+    font-family: "Work sans";
+}
+.self-message{
+    margin: 2.5px 0px;
+    /* align-self: flex-end; */
+    margin-left: auto;
+    background-color: #D9FDD3;
+    margin-right: 6px;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 0px;
+}
+.anonymous-message{
+    margin: 2.5px  0px;
+    background-color: white;
+    margin-left: 25px;
+    border-top-left-radius: 0px ;
+    border-top-right-radius: 10px;
+}
+
+.self-message,.anonymous-message{
+    /* max-width: 20vw; */
+    display: flex;
+    /* flex-direction: column; */
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 400;
+    /* width: fit-content; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 8px 10px;
+    word-break: break-all;
+}
+.message-text{
+    display: block;
+    max-width: 30vw;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.message-time{
+    display: inline-block;
+    align-self: end;
+    margin-left: auto;
+    font-size: 9px;
+    margin-top: 5px;
+    margin-right: 1px;
+}
+/* .self-message ,.anonymous-message{
+    display: flex;
+    // flex-direction: column; 
+    position: relative;
+    font-size: 13px;
+    font-weight: 400;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: max-content;
+    height: max-content;
+    padding: 8px 10px;
+    padding-bottom: 2px;
+    color : black;
+}
+.self-message span,.anonymous-message span{
+    word-break:break-all;
+    max-width: 30vw;
+
+}
+.message-text{
+    padding-bottom: 5px;
+}
+.message-time{
+    // position: absolute; 
+    display: inline;
+    // margin-top: auto; 
+            // margin-left: 7;
+            // text-transform: lowercase; 
+    //new comnets
+    margin-top: 15px;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    max-width: 32px;
+   //over cmts
+    // margin-left: auto; 
+     
+    // text-align: right;
+    margin-right: 0px;  
+    font-size: 8px;
+    
+} */
