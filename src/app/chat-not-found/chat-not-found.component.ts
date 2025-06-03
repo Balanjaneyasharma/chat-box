@@ -2,11 +2,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat-not-found',
-  templateUrl: './chat-not-found.component.html',
-  styleUrls: ['./chat-not-found.component.css']
+    selector: 'app-chat-not-found',
+    templateUrl: './chat-not-found.component.html',
+    styleUrls: ['./chat-not-found.component.css'],
+    standalone: true
 })
-export class ChatNotFoundComponent implements OnInit{
+export class ChatNotFoundComponent implements OnInit {
+
   title='Chat Not Found';
   message = 'Selected chat is not availaible'
   constructor(private ar :Router){}

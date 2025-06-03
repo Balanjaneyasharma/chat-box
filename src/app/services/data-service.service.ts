@@ -14,10 +14,6 @@ export class DataServiceService {
   dataStorage$ = new BehaviorSubject<ChatBox[]>([]);
   private apiUrl = 'https://63f73071833c7c9c607e69f4.mockapi.io/api/data/ChatBoxGroups'
 
-  
-  
-
-
   getDataStorageObservable(){
     return this.dataStorage$.asObservable();
   }

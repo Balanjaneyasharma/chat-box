@@ -3,11 +3,16 @@ import { ChatBox } from '../models/ChatBox.model';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DataServiceService } from '../services/data-service.service';
+import { RouterOutlet } from '@angular/router';
+import { ChatListItemComponent } from '../chat-list-item/chat-list-item.component';
+import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-chat-list',
-  templateUrl: './chat-list.component.html',
-  styleUrls: ['./chat-list.component.css']
+    selector: 'app-chat-list',
+    templateUrl: './chat-list.component.html',
+    styleUrls: ['./chat-list.component.css'],
+    standalone: true,
+    imports: [NgFor, NgIf, ChatListItemComponent, RouterOutlet, TitleCasePipe]
 })
 export class ChatListComponent implements OnInit{
   constructor(private http : HttpClient,private ds : DataServiceService){}

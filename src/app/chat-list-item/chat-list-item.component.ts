@@ -1,11 +1,15 @@
 import { ChatListComponent } from './../chat-list/chat-list.component';
 import { ChatBox } from '../models/ChatBox.model';
 import { Component, Input, OnInit } from '@angular/core';
+import { NgIf, LowerCasePipe, DatePipe } from '@angular/common';
+import { RouterLinkActive, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-chat-list-item',
-  templateUrl: './chat-list-item.component.html',
-  styleUrls: ['./chat-list-item.component.css']
+    selector: 'app-chat-list-item',
+    templateUrl: './chat-list-item.component.html',
+    styleUrls: ['./chat-list-item.component.css'],
+    standalone: true,
+    imports: [RouterLinkActive, RouterLink, NgIf, LowerCasePipe, DatePipe]
 })
 export class ChatListItemComponent implements OnInit{
   @Input('data') data !: ChatBox; 

@@ -8,8 +8,8 @@ describe('ChatListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChatListItemComponent ]
-    })
+    imports: [ChatListItemComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ChatListItemComponent);
