@@ -1,49 +1,68 @@
-<section class="chat-conversation-section" *ngIf="data">
+@if (data) {
+  <section class="chat-conversation-section">
     <header class="chat-conversation-header">
-        <div class="chat-header-item">
-            <div class="user-icon">
-                <i class="fas fa-user-friends"></i>
-            </div>
-            <h1 class="user-name">{{data.name}}</h1>
+      <div class="chat-header-item">
+        <div class="user-icon">
+          <i class="fas fa-user-friends"></i>
         </div>
-        <div class="chat-header-item">
-            <i class="fa-solid fa-trash" (click)="delete()"></i>
-        </div>
+        <h1 class="user-name">{{data.name}}</h1>
+      </div>
+      <div class="chat-header-item">
+        <i class="fa-solid fa-trash" (click)="delete()"></i>
+      </div>
     </header>
     <div class="message-container">
-        <div class="check" *ngIf="data.messages">
-            <div class="messages"  *ngFor="let m of data.messages">
-                <div class="self-message" *ngIf="m.self">
-                    <span class="message-text">
-                        {{m.message}}
+      @if (data.messages) {
+        <div class="check">
+          @for (m of data.messages; track m) {
+            <div class="messages" >
+              @if (m.self) {
+                <div class="self-message">
+                  <span class="message-text">
+                    {{m.message}}
+                  </span>
+                  @if (compare(m.createdAt)) {
+                    <span class="message-time">
+                      {{m.createdAt  |date :'h:mm a'|lowercase}}
                     </span>
-                    <span class="message-time" *ngIf="compare(m.createdAt)">
-                        {{m.createdAt  |date :'h:mm a'|lowercase}}
+                  }
+                  @if (!compare(m.createdAt)) {
+                    <span class="message-time">
+                      {{m.createdAt | date : 'dd/MM/yyyy, h:mm a'|lowercase}}
                     </span>
-                    <span class="message-time" *ngIf="!compare(m.createdAt)">
-                        {{m.createdAt | date : 'dd/MM/yyyy, h:mm a'|lowercase}}
-                    </span>
+                  }
                 </div>
-                <div class="anonymous-message" *ngIf="!m.self">
-                    <span class="message-text">
-                        {{m.message}}
+              }
+              @if (!m.self) {
+                <div class="anonymous-message">
+                  <span class="message-text">
+                    {{m.message}}
+                  </span>
+                  @if (compare(m.createdAt)) {
+                    <span class="message-time">
+                      {{m.createdAt  | date:'h:mm a'|lowercase}}
                     </span>
-
-                    <span class="message-time" *ngIf="compare(m.createdAt)">
-                        {{m.createdAt  | date:'h:mm a'|lowercase}}
+                  }
+                  @if (!compare(m.createdAt)) {
+                    <span class="message-time">
+                      {{m.createdAt | date : 'dd/MM/yyyy, h:mm a'|lowercase}}
                     </span>
-                    <span class="message-time" *ngIf="!compare(m.createdAt)">
-                        {{m.createdAt | date : 'dd/MM/yyyy, h:mm a'|lowercase}}
-                    </span>
+                  }
                 </div>
+              }
             </div>
+          }
         </div>
-    </div>    
-    
-    <div class="send-message">
-        <i class="fa-solid fa-user-tie mode" *ngIf="self" (click)="toogle()"></i>
-        <i class="fa-solid fa-user-secret mode" *ngIf="!self" (click)="toogle()"></i>
-        <input type="text" name="" id=""  [(ngModel)]="message"  placeholder="Type a message" (keydown.enter)="onClick()">
+      }
     </div>
-
-</section>
+    <div class="send-message">
+      @if (self) {
+        <i class="fa-solid fa-user-tie mode" (click)="toogle()"></i>
+      }
+      @if (!self) {
+        <i class="fa-solid fa-user-secret mode" (click)="toogle()"></i>
+      }
+      <input type="text" name="" id=""  [(ngModel)]="message"  placeholder="Type a message" (keydown.enter)="onClick()">
+    </div>
+  </section>
+}

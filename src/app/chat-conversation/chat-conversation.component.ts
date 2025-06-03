@@ -5,14 +5,14 @@ import { Messages } from '../models/message.model';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-import { NgIf, NgFor, LowerCasePipe, DatePipe } from '@angular/common';
+import { LowerCasePipe, DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-chat-conversation',
     templateUrl: './chat-conversation.component.html',
     styleUrls: ['./chat-conversation.component.css'],
     standalone: true,
-    imports: [NgIf, NgFor, FormsModule, LowerCasePipe, DatePipe]
+    imports: [FormsModule, LowerCasePipe, DatePipe]
 })
 export class ChatConversationComponent implements OnInit{
 

@@ -1,15 +1,15 @@
-import { ChatListComponent } from './../chat-list/chat-list.component';
-import { ChatBox } from '../models/ChatBox.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { NgIf, LowerCasePipe, DatePipe } from '@angular/common';
+import { LowerCasePipe, DatePipe } from '@angular/common';
 import { RouterLinkActive, RouterLink } from '@angular/router';
+
+import { ChatBox } from '../models/ChatBox.model';
 
 @Component({
     selector: 'app-chat-list-item',
     templateUrl: './chat-list-item.component.html',
     styleUrls: ['./chat-list-item.component.css'],
     standalone: true,
-    imports: [RouterLinkActive, RouterLink, NgIf, LowerCasePipe, DatePipe]
+    imports: [RouterLinkActive, RouterLink, LowerCasePipe, DatePipe]
 })
 export class ChatListItemComponent implements OnInit{
   @Input('data') data !: ChatBox; 
@@ -17,14 +17,7 @@ export class ChatListItemComponent implements OnInit{
   sameDate !: boolean ;
   ngOnInit(): void {
       let lastModified = new Date(this.data.lastModified);
-      if(this.today.toDateString() === lastModified.toDateString()){
-        this.sameDate = true;
-      }
-      else this.sameDate = false;
-      
-    
-  
-    // console.log(this.data.id);
+      this.sameDate = this.today.toDateString() === lastModified.toDateString();
   }
   
     

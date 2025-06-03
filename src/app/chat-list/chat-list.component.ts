@@ -1,18 +1,20 @@
-import { switchMap } from 'rxjs';
-import { ChatBox } from '../models/ChatBox.model';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
-import { DataServiceService } from '../services/data-service.service';
+import { Component, OnInit, inject } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+
+import { switchMap } from 'rxjs';
+
 import { ChatListItemComponent } from '../chat-list-item/chat-list-item.component';
-import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
+import { ChatBox } from '../models/ChatBox.model';
+import { DataServiceService } from '../services/data-service.service';
 
 @Component({
     selector: 'app-chat-list',
     templateUrl: './chat-list.component.html',
     styleUrls: ['./chat-list.component.css'],
     standalone: true,
-    imports: [NgFor, NgIf, ChatListItemComponent, RouterOutlet, TitleCasePipe]
+    imports: [ChatListItemComponent, RouterOutlet, TitleCasePipe]
 })
 export class ChatListComponent implements OnInit{
   

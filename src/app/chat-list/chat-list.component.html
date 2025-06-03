@@ -1,43 +1,47 @@
 <div class="grid-container">
-    <section class="chat-list-section">
-        <header class="chat-header">
-            <div class="chat-header-item">
-                <div class="user-icon">
-                    <i class="fa-solid fa-user fa-2xs"></i>
-                </div>
-                <h1 class="user-name">{{title|titlecase}}</h1>
-            </div>
-            <div class="chat-header-item">
-                <i class="fa-solid fa-users"></i>
-            </div>
-        </header>
-        <section class="chat-list-content">
-            <div class="search-users">
-                    <div class="search-box">
-                        <span class="search-icon"><i class="fas fa-search"></i></span>
-                        <input #search type="search" class="chat-list-search" name="" id="" placeholder="search chat group"  (input)="searchData(search.value)">
-                    </div>
-                <button class="add-chat-button" (click)="addChat()" >
-                    <i class="fa-solid fa-plus fa-xl"></i>
-                </button>
-            </div>
-            
-                <!-- <app-chat-list-item  [data]="singleData">
-                    &#xf002;
-                </app-chat-list-item> -->
-                <!-- <div *ngFor="let d of storage">
-                <app-chat-list-item  [data]="d"  *ngIf="searchText === '' || d.name.toLowerCase().includes(searchText)"></app-chat-list-item>
-                </div> -->
-            <ul  class="chat-list" >
-                <li *ngFor="let d of storage" >
-                    <app-chat-list-item  [data]="d"  *ngIf="searchText === '' || d.name.toLowerCase().includes(searchText)">
-                    </app-chat-list-item>
-                </li>
-            </ul>
-            
-        </section>
-    </section>
-    <!-- d.name.toLowerCase().includes(searchText) -->
-    <router-outlet></router-outlet>
+  <section class="chat-list-section">
+    <header class="chat-header">
+      <div class="chat-header-item">
+        <div class="user-icon">
+          <i class="fa-solid fa-user fa-2xs"></i>
+        </div>
+        <h1 class="user-name">{{title|titlecase}}</h1>
+      </div>
+      <div class="chat-header-item">
+        <i class="fa-solid fa-users"></i>
+      </div>
+    </header>
+    <section class="chat-list-content">
+      <div class="search-users">
+        <div class="search-box">
+          <span class="search-icon"><i class="fas fa-search"></i></span>
+          <input #search type="search" class="chat-list-search" name="" id="" placeholder="search chat group"  (input)="searchData(search.value)">
+        </div>
+        <button class="add-chat-button" (click)="addChat()" >
+          <i class="fa-solid fa-plus fa-xl"></i>
+        </button>
+      </div>
+
+      <!-- <app-chat-list-item  [data]="singleData">
+      &#xf002;
+    </app-chat-list-item> -->
+    <!-- <div *ngFor="let d of storage">
+    <app-chat-list-item  [data]="d"  *ngIf="searchText === '' || d.name.toLowerCase().includes(searchText)"></app-chat-list-item>
+  </div> -->
+  <ul  class="chat-list" >
+    @for (d of storage; track d) {
+      <li >
+        @if (searchText === '' || d.name.toLowerCase().includes(searchText)) {
+          <app-chat-list-item  [data]="d" >
+          </app-chat-list-item>
+        }
+      </li>
+    }
+  </ul>
+
+</section>
+</section>
+<!-- d.name.toLowerCase().includes(searchText) -->
+<router-outlet></router-outlet>
 </div>
 
