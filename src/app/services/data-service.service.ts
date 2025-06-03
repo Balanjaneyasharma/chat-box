@@ -1,15 +1,18 @@
 import { Router } from '@angular/router';
-import { ChatBox } from '../models/ChatBox.model';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, catchError, of } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+
+import { BehaviorSubject } from 'rxjs';
+
+import { ChatBox } from '../models/ChatBox.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
 
-  constructor(private http : HttpClient,private rs : Router) { }
+  private http = inject(HttpClient);
+  private rs = inject(Router);
  
   dataStorage$ = new BehaviorSubject<ChatBox[]>([]);
   private apiUrl = 'https://63f73071833c7c9c607e69f4.mockapi.io/api/data/ChatBoxGroups'
@@ -38,36 +41,3 @@ export class DataServiceService {
     return this.http.delete<ChatBox>(`${this.apiUrl}/${id}`);
   }
 }
-/**.pipe(
-      catchError((err)=>{
-        this.rs.navigate(['/chats/chat-not-found']);
-        console.log('hi this is',err);
-    // return this.http.put<ChatBox>('https://63f73071833c7c9c607e69f4.mockapi.io/api/data/ChatBoxGroups/'+data.id,data)
-    // return this.http.get<ChatBox>(`https://63f73071833c7c9c607e69f4.mockapi.io/api/data/ChatBoxGroups/${id}`);
-    // return this.http.delete<ChatBox>(`https://63f73071833c7c9c607e69f4.mockapi.io/api/data/ChatBoxGroups/${id}`)
-
-
-        return of(undefined);
-        // removeData$ = new Subject<ChatBox>();
-        
-        
-  // modifyData$ = new Subject<ChatBox>();
-
-
-
-  // deleteData(value : ChatBox){
-  //   this.removeData$.next(value);
-  // }
-
-  // updateData(value : ChatBox){
-  //   this.modifyData$.next(value);
-  // }
-  // getRemoveObservable(){
-  //   return this.removeData$.asObservable();
-  // }
-
-  // getUpdateObservable(){
-  //   return this.modifyData$.asObservable();
-  // }
-      })
-    ) */

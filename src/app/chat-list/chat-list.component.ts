@@ -1,7 +1,7 @@
 import { switchMap } from 'rxjs';
 import { ChatBox } from '../models/ChatBox.model';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
 import { DataServiceService } from '../services/data-service.service';
 import { RouterOutlet } from '@angular/router';
 import { ChatListItemComponent } from '../chat-list-item/chat-list-item.component';
@@ -15,7 +15,10 @@ import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
     imports: [NgFor, NgIf, ChatListItemComponent, RouterOutlet, TitleCasePipe]
 })
 export class ChatListComponent implements OnInit{
-  constructor(private http : HttpClient,private ds : DataServiceService){}
+  
+  private http = inject(HttpClient);
+  private ds = inject(DataServiceService);
+
   storage !:ChatBox [];
   title :string = 'balu sharma';
   searchText : string ='';

@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 @Component({
     selector: 'app-chat-not-found',
@@ -9,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatNotFoundComponent implements OnInit {
 
+  private ar = inject(Router);
+
   title='Chat Not Found';
-  message = 'Selected chat is not availaible'
-  constructor(private ar :Router){}
+  message = 'Selected chat is not available';
 
   ngOnInit(): void {
     if(this.ar.url.includes('page-not-found')){

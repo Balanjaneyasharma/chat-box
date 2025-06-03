@@ -2,7 +2,7 @@ import { DataServiceService } from '../services/data-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChatBox } from '../models/ChatBox.model';
 import { Messages } from '../models/message.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgFor, LowerCasePipe, DatePipe } from '@angular/common';
@@ -15,13 +15,19 @@ import { NgIf, NgFor, LowerCasePipe, DatePipe } from '@angular/common';
     imports: [NgIf, NgFor, FormsModule, LowerCasePipe, DatePipe]
 })
 export class ChatConversationComponent implements OnInit{
+
+  private ar = inject(ActivatedRoute);
+  private rs = inject(Router);
+  private ds = inject(DataServiceService);
+
   groupName = 'Anonymous Group';
   data ! : ChatBox;
   self : boolean = false;
   id !: string;
   today: Date = new Date();
   message : string='';
-  constructor(private ar : ActivatedRoute,private rs : Router,private ds : DataServiceService) { }
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
   
   ngOnInit(){
     console.log('on init');
