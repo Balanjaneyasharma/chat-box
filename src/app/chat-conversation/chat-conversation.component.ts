@@ -30,20 +30,16 @@ export class ChatConversationComponent implements OnInit{
   /** Inserted by Angular inject() migration for backwards compatibility */
   
   ngOnInit(){
-    console.log('on init');
     this.ar.paramMap.pipe(
       switchMap((p) => {
-        console.log('on paramap: ',p);
         this.message='';
         return  this.ds.getSingleData(p.get('id') as string);
       }),
     ).subscribe({
       next:(value) => {
-        console.log('on Contact: ',value);
         this.data = value;
       },
       error:(err)=>{
-        console.log('on ErrorContact: ',err);
 
         this.rs.navigate(['/chats/chat-not-found']);
       },
@@ -60,9 +56,7 @@ export class ChatConversationComponent implements OnInit{
       this.data.messages.push(x);
       let user = this.self ? 'You' : 'Anonymous';
       this.data.recentActivity = user + " : "+ this.message;
-      // console.log(this.data.recentActivity);
       this.data.lastModified = x.createdAt;
-      // console.log(this.data.messages);
       this.ds.updateDataToServer(this.data).pipe(
         switchMap(()=>this.ds.getData())
       ).subscribe((data)=>{
