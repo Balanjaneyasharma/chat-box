@@ -46,7 +46,6 @@ export class ChatListComponent implements OnInit{
     this.storage =this.storage.sort((a,b)=>{
       return new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime();
     })
-    console.log(this.storage);
   }
   addChat(){
     let x= prompt('Enter Group name') as string;
@@ -60,7 +59,6 @@ export class ChatListComponent implements OnInit{
         this.ds.postData(body).pipe(
           switchMap(()=>this.ds.getData())
            ).subscribe((value)=>{
-              console.log(999);
               this.ds.updateDateStorage(value)
             });
       }
@@ -70,7 +68,6 @@ export class ChatListComponent implements OnInit{
     
   }
   searchData(value:string){
-    console.log(value);
     this.searchText = value.toLowerCase();
   }
 
