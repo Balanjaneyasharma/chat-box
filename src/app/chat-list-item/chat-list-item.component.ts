@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
 import { LowerCasePipe, DatePipe } from '@angular/common';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 
@@ -11,13 +11,16 @@ import { ChatBox } from '../models/ChatBox.model';
     standalone: true,
     imports: [RouterLinkActive, RouterLink, LowerCasePipe, DatePipe]
 })
-export class ChatListItemComponent implements OnInit{
-  @Input('data') data !: ChatBox; 
+export class ChatListItemComponent implements OnInit {
+
+  readonly data = input.required<ChatBox>(); 
+
   today = new Date();
   sameDate !: boolean ;
+
   ngOnInit(): void {
-      let lastModified = new Date(this.data.lastModified);
-      this.sameDate = this.today.toDateString() === lastModified.toDateString();
+    let lastModified = new Date(this.data().lastModified);
+    this.sameDate = this.today.toDateString() === lastModified.toDateString();
   }
   
     
