@@ -1,27 +1,54 @@
-# ChatBox
+# 💬 Chat-Box
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+A sleek Angular-based chat interface that mimics core chat functionalities similar to WhatsApp. It uses [Mocky API](https://mocky.io) to simulate backend responses, providing a seamless front-end experience for testing and prototyping.
 
-## Development server
+## 🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 🗂️ **Chat Group Management**
+  - Create new chat groups using a prompt-based user input.
+  - Display created date and time for each group.
+  - Delete chat groups with confirmation dialogs.
+  - Chat groups reorder to the top on new message activity (like WhatsApp).
 
-## Code scaffolding
+- 💬 **Chat Functionality**
+  - Display chats with alignment based on sender:
+    - **Self** messages appear on the right.
+    - **Others** appear on the left.
+  - View chats for the selected group on the right panel.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🧭 **Layout**
+  - **Left Panel**: Lists all chat groups.
+  - **Right Panel**: Displays messages of the selected chat group.
 
-## Build
+- 🧹 **Fallback Screens**
+  - `chat-not-found`: When a chat group is empty or doesn't exist.
+  - `page-not-found`: Handles incorrect or broken routes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tech Stack
 
-## Running unit tests
+- **Frontend**: Angular
+- **Backend (Mock Data)**: [Mocky API](https://mocky.io)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🗑️ Deletion Confirmation
 
-## Running end-to-end tests
+When attempting to delete a chat group, the app prompts for user confirmation to prevent accidental deletion.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📝 Getting Started
 
-## Further help
+### 1. Clone the Repository
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+git clone https://github.com/your-username/chat-box.git
+cd chat-box
+```
+## 2. Install Dependencies
+
+```bash
+npm install
+```
+
+## 3. Run the App
+
+```bash
+ng serve
+```
