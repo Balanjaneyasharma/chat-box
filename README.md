@@ -27,7 +27,7 @@ A sleek Angular-based chat interface that mimics core chat functionalities simil
 ## 🛠️ Tech Stack
 
 - **Frontend**: Angular
-- **Backend (Mock Data)**: [Mocky API](https://mocky.io)
+- **Backend (Mock Data)**: [Mock API](https://mockapi.io/)
 
 ## 🗑️ Deletion Confirmation
 
